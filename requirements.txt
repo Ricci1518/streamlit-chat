@@ -1,2 +1,2 @@
-streamlit-chat=0.0.2.2 
-langchain=0.0.176
+streamlit-chat>=0.0.2.2 
+langchain>=0.0.176
