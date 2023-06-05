@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_chat import message
 from langchain.chat_models import ChatOpenAI
 from langchain import PromptTemplate, LLMChain
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.prompts.chat import (
     ChatPromptTemplate,
     SystemMessagePromptTemplate,
@@ -25,7 +26,7 @@ if 'messages' not in st.session_state:
     ]
 
 def get_result(temp, mess):
-    chat = ChatOpenAI(temperature=temp, model_name=MODEL)
+    chat = ChatOpenAI(temperature=temp,callbacks=[StreamingStdOutCallbackHandler()], model_name=MODEL)
     st.session_state.messages.append(HumanMessage(content=mess))
     response = chat(st.session_state.messages)
     st.session_state.messages.append(response)
