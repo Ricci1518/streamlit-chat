@@ -15,7 +15,7 @@ from langchain.schema import (
     SystemMessage
 )
 
-models =  ["gpt-3.5-turbo", "gpt-4"]
+models =  ["gpt-3.5-turbo", "gpt-4", "gpt-3.5-turbo-16k"]
 MODEL = "gpt-3.5-turbo"
 
 
